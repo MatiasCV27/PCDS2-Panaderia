@@ -1,0 +1,22 @@
+﻿@model TortasModel
+@{
+    ViewData["Title"] = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Eliminar Pastel
+    </div>
+    <div class="card-body">
+        <form asp-action="Eliminar" asp-controller="Tortas" method="post">
+            <input asp-for="idTortas" type="hidden" class="form-control">
+            <div class="alert alert-danger" role="alert">
+                ¿Deseas eliminar al pastel: @Html.DisplayTextFor(pas => pas.nombreT)?
+            </div>
+            <button type="submit" class="btn btn-danger"><i class="bi bi-trash-fill"></i>Eliminar</button>
+            <a asp-action="Listar" asp-controller="Tortas" class="btn btn-warning"><i class="bi bi-arrow-left"></i>Volver a la lista</a>
+        </form>
+    </div>
+</div>
+

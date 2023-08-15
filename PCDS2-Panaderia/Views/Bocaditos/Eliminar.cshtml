@@ -1,0 +1,21 @@
+﻿@model BocaditosModel
+@{
+    ViewData["Title"] = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="card">
+    <div class="card-header">
+        Eliminar Bocadito
+    </div>
+    <div class="card-body">
+        <form asp-action="Eliminar" asp-controller="Bocaditos" method="post">
+            <input asp-for="idBocaditos" type="hidden" class="form-control">
+            <div class="alert alert-danger" role="alert">
+                ¿Deseas eliminar al bocadito: @Html.DisplayTextFor(mp => mp.nombreB)?
+            </div>
+            <button type="submit" class="btn btn-danger"><i class="bi bi-trash-fill"></i>Eliminar</button>
+            <a asp-action="Listar" asp-controller="Bocaditos" class="btn btn-warning"><i class="bi bi-arrow-left"></i>Volver a la lista</a>
+        </form>
+    </div>
+</div>
+

@@ -1,0 +1,47 @@
+﻿@model List<BocaditosModel>
+@{
+    ViewData["Title"] = "Listar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Listado de Bocaditos
+    </div>
+    <div class="card-body">
+        <a asp-action="Guardar" asp-controller="Bocaditos" class="btn btn-success"><i class="bi bi-person-plus-fill"></i>Agregar Nuevo Bocadito</a>
+        <hr />
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th class="text-center" style="vertical-align: middle;">Marca</th>
+                    <th class="text-center" style="vertical-align: middle;">Nombre del Bocadito</th>
+                    <th class="text-center" style="vertical-align: middle;">Descripcion del Bocadito</th>
+                    <th class="text-center" style="vertical-align: middle;">Costo del Bocadito</th>
+                    <th class="text-center" style="vertical-align: middle;">Fecha de Creacion</th>
+                    <th class="text-center" style="vertical-align: middle;">Fecha de Vencimiento</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td style="vertical-align: middle;">@item.idMarca</td>
+                        <td style="vertical-align: middle;">@item.nombreB</td>
+                        <td style="vertical-align: middle;">@item.descripcionB</td>
+                        <td style="vertical-align: middle;">@item.costoB</td>
+                        <td style="vertical-align: middle;">@item.fechaCreacionB.ToString("yyyy-MM-dd")</td>
+                        <td style="vertical-align: middle;">@item.fechaVencimiB.ToString("yyyy-MM-dd")</td>
+                        <td style="vertical-align: middle;" class="text-center">
+                            <a asp-action="Editar" asp-controller="Bocaditos" class="btn btn-primary" asp-route-idBocaditos="@item.idBocaditos"><i class="bi bi-pencil-square"></i></a>
+                        </td>
+                        <td style="vertical-align: middle;" class="text-center">
+                            <a asp-action="Eliminar" asp-controller="Bocaditos" class="btn btn-danger" asp-route-idBocaditos="@item.idBocaditos"><i class="bi bi-trash-fill"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

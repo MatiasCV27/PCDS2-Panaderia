@@ -1,0 +1,48 @@
+﻿@model List<TortasModel>
+@{
+    ViewData["Title"] = "Listar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Listado de Pasteles
+    </div>
+    <div class="card-body">
+        <a asp-action="Guardar" asp-controller="Tortas" class="btn btn-success"><i class="bi bi-person-plus-fill"></i>Agregar Nuevo Pastel</a>
+        <hr />
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th class="text-center" style="vertical-align: middle;">Marca</th>
+                    <th class="text-center" style="vertical-align: middle;">Nombre del Pastel</th>
+                    <th class="text-center" style="vertical-align: middle;">Descripcion del Pastel</th>
+                    <th class="text-center" style="vertical-align: middle;">Costo del Pastel</th>
+                    <th class="text-center" style="vertical-align: middle;">Fecha de Creacion</th>
+                    <th class="text-center" style="vertical-align: middle;">Fecha de Vencimiento</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td style="vertical-align: middle;">@item.idMarca</td>
+                        <td style="vertical-align: middle;">@item.nombreT</td>
+                        <td style="vertical-align: middle;">@item.descripcionT</td>
+                        <td style="vertical-align: middle;">@item.costoT</td>
+                        <td style="vertical-align: middle;">@item.fechaCreacionT.ToString("yyyy-MM-dd")</td>
+                        <td style="vertical-align: middle;">@item.fechaVencimi.ToString("yyyy-MM-dd")</td>
+                        <td style="vertical-align: middle;" class="text-center">
+                            <a asp-action="Editar" asp-controller="Tortas" class="btn btn-primary" asp-route-idTortas="@item.idTortas"><i class="bi bi-pencil-square"></i></a>
+                        </td>
+                        <td style="vertical-align: middle;" class="text-center">
+                            <a asp-action="Eliminar" asp-controller="Tortas" class="btn btn-danger" asp-route-idTortas="@item.idTortas"><i class="bi bi-trash-fill"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
