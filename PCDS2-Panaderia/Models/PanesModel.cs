@@ -16,12 +16,12 @@ namespace PCDS2_Panaderia.Models
         [Required]
         public decimal costoP { get; set; }
         [Required]
-        public int stockP { get; set; }
-        [Required]
-        public string? imagenP { get; set; }
-        [Required]
         public DateTime fechaCreacionP { get; set; }
         [Required]
         public DateTime fechaVencimiP { get; set; }
+        [Required]
+        public int stockP { get; set; }
+        [Required]
+        public string? imagenP { get; set; }
     }
 }

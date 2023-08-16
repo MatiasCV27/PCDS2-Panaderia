@@ -39,6 +39,16 @@
                 <input asp-for="fechaVencimi" type="date" class="form-control">
                 <span asp-validation-for="fechaVencimi" class="text-danger"></span>
             </div>
+            <div class="mb-3">
+                <label class="form-label">Stock Disponible</label>
+                <input asp-for="stockT" type="number" class="form-control">
+                <span asp-validation-for="stockT" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Imagen</label>
+                <input asp-for="imagenT" type="text" class="form-control">
+                <span asp-validation-for="imagenT" class="text-danger"></span>
+            </div>
             <button type="submit" class="btn btn-primary"><i class="bi bi-cloud-download-fill"></i> Guardar</button>
             <a asp-action="Listar" asp-controller="Tortas" class="btn btn-warning"><i class="bi bi-arrow-left"></i> Volver a la lista</a>
         </form>

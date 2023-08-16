@@ -17,5 +17,9 @@ namespace PCDS2_Panaderia.Models
         public DateTime fechaCreacionB { get; set; }
         [Required]
         public DateTime fechaVencimiB { get; set; }
+        [Required]
+        public int stockB { get; set; }
+        [Required]
+        public string? imagenB { get; set; }
     }
 }
