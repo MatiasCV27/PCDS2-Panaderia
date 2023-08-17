@@ -57,6 +57,12 @@
                         @if (!(User.IsInRole("ADMIN") || User.IsInRole("USER")))
                         {
                             <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="GuardarPropioUser">Registrar</a>
+                            </li>
+                        }
+                        @if (!(User.IsInRole("ADMIN") || User.IsInRole("USER")))
+                        {
+                            <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Acceso" asp-action="Login">Login</a>
                             </li>
                         }

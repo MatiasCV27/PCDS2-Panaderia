@@ -1,4 +1,5 @@
-﻿@model UsuariosModel
+﻿@using Microsoft.AspNetCore.Identity;
+@model UsuariosModel
 @{
     ViewData["Title"] = "Acceso";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -14,6 +15,9 @@
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Contraseña</label>
                 <input type="password" class="form-control" asp-for="clave">
+            </div>
+            <div>
+                <p><a asp-controller="Usuarios" asp-action="GuardarPropioUser">¿No tenés contraseña pibe?</a></p>
             </div>
             <button type="submit" class="btn btn-primary">Ingresar</button>
         </form>
