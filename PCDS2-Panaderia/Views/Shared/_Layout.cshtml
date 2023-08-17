@@ -45,7 +45,7 @@
                         @if (User.IsInRole("ADMIN"))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Acceso" asp-action="ListarUser">Registrar</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="ListarUser">Registrar</a>
                             </li>
                         }
                         @if (User.IsInRole("ADMIN") || User.IsInRole("USER"))

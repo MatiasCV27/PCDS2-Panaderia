@@ -9,7 +9,8 @@
         Registrar
     </div>
     <div class="card-body">
-        <form asp-action="Editar" asp-controller="Acceso" method="post">
+        <form asp-action="Editar" asp-controller="Usuarios" method="post">
+            <input asp-for="idUsuario" type="hidden" class="form-control">
             <div class="mb-3">
                 <label class="form-label">Nombre de Usuario</label>
                 <input asp-for="usuario" type="text" class="form-control">
@@ -34,7 +35,7 @@
                 <span asp-validation-for="rol" class="text-danger"></span>
             </div>
             <button type="submit" class="btn btn-primary"><i class="bi bi-cloud-download-fill"></i> Guardar</button>
-            <a asp-action="ListarUser" asp-controller="Acceso" class="btn btn-warning"><i class="bi bi-arrow-left"></i> Volver a la lista</a>
+            <a asp-action="ListarUser" asp-controller="Usuarios" class="btn btn-warning"><i class="bi bi-arrow-left"></i> Volver a la lista</a>
         </form>
     </div>
 </div>

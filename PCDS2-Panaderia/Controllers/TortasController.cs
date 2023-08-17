@@ -54,10 +54,10 @@ namespace PCDS2_Panaderia.Controllers
             else
                 return View();
         }
-        public IActionResult Eliminar(int idPanes)
+        public IActionResult Eliminar(int idTortas)
         {
-            var oPan = _TorData.ObtenerTortas(idPanes);
-            return View(oPan);
+            var oTorta = _TorData.ObtenerTortas(idTortas);
+            return View(oTorta);
         }
         [HttpPost]
         public IActionResult Eliminar(TortasModel oTorta)
