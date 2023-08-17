@@ -2,8 +2,11 @@
 using PCDS2_Panaderia.Models;   
 using Microsoft.AspNetCore.Mvc;
 
+using Microsoft.AspNetCore.Authorization;
+
 namespace PCDS2_Panaderia.Controllers
 {
+    [Authorize(Roles = "ADMIN")]
     public class BocaditosController : Controller
     {
         BocaditosData _BocaData = new BocaditosData();

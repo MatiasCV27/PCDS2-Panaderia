@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity;
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -23,15 +24,36 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Panes" asp-action="Listar">Panes</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Bocaditos" asp-action="Listar">Bocaditos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Tortas" asp-action="Listar">Pasteles</a>
-                        </li>
+                        @if(User.IsInRole("ADMIN"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Panes" asp-action="Listar">Panes</a>
+                            </li>
+                        }
+                        @if(User.IsInRole("ADMIN"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Bocaditos" asp-action="Listar">Bocaditos</a>
+                            </li>
+                        }   
+                        @if(User.IsInRole("ADMIN"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Tortas" asp-action="Listar">Pasteles</a>
+                            </li>
+                        }
+                        @if (User.IsInRole("ADMIN") || User.IsInRole("USER"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Acceso" asp-action="Salir">Salir</a>
+                            </li>
+                        }
+                        @if (!(User.IsInRole("ADMIN") || User.IsInRole("USER")))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Acceso" asp-action="Login">Login</a>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>

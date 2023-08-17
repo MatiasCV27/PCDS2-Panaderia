@@ -2,8 +2,11 @@
 using PCDS2_Panaderia.Data;
 using PCDS2_Panaderia.Models;
 
+using Microsoft.AspNetCore.Authorization;
+
 namespace PCDS2_Panaderia.Controllers
 {
+    [Authorize(Roles = "ADMIN")]
     public class TortasController : Controller
     {
         TortasData _TorData = new TortasData();
