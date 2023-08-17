@@ -109,6 +109,7 @@ namespace PCDS2_Panaderia.Data
                 {
                     con.Open();
                     SqlCommand cmd = new SqlCommand("sp_EditarPanes", con);
+                    cmd.Parameters.AddWithValue("idPanes", oPanes.idPanes);
                     cmd.Parameters.AddWithValue("idMarca", oPanes.idMarca);
                     cmd.Parameters.AddWithValue("nombreP", oPanes.nombreP);
                     cmd.Parameters.AddWithValue("descripcionP", oPanes.descripcionP);

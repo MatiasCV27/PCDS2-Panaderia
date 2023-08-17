@@ -82,66 +82,11 @@ create table Bocaditos (
     costoB			decimal not null,
     fechaCreacionB 	Date,
     fechaVencimiB 	Date,
+	stockB			Int not null,
+	imagenB			Varchar(Max),
     constraint pk_Bocad Primary key(idBocaditos),
     constraint fk_MarcaB FOREIGN KEY(idMarca) REFERENCES Marca(idMarca),
 );
--- Pasteles
-create table Tortas (
-	idTortas		Int Identity(1,1) Not null,
-    idMarca			int not null,
-    nombreT			Varchar(25) not null,
-    descripcionT 	Varchar(100) null,
-    costoT			decimal not null,
-    fechaCreacionT 	Date,
-    fechaVencimi 	Date,
-    constraint pk_Tortas Primary key(idTortas),
-    constraint fk_MarcaT FOREIGN KEY(idMarca) REFERENCES Marca(idMarca),
-);
--- Marca
-create table Marca (
-	idMarca			Int Identity(1,1) Not null,
-    nombreM			Varchar(25) not null,
-    descripcionM 	Varchar(100) null,
-    constraint pk_Marca Primary key(idMarca)
-);
-
-Insert Into Marca Values ('Artesanal', 'Es la marca con lo que la panaderia vende sus propios productos.');
-Insert Into Marca Values ('Bimbo', 'Es una empresa mexicana y una de las compañías de panificación más grandes a nivel mundial.');
-Insert Into Marca Values ('Dempster', 'Es una marca canadiense de pan que ofrece una variedad de productos.');
-Insert Into Marca Values ('Aryzta', 'Es una empresa de panificación con sede en Suiza que suministra productos a nivel internacional.');
-Insert Into Marca Values ('Hovis', 'Marca británica de pan que se especializa en panes de trigo integral y productos relacionados.');
-
--- USUARIOS
-
-Create Table usuarios (
-	id		int identity(1000,1),
-	usuario varchar(50),
-	contra	varbinary(500)
-)
-Create Procedure sp_agregausuario
-	@usuario	varchar(50),
-	@contra		varchar(50),
-	@patron		varchar(50)
-as
-begin
-insert into usuarios(usuario,contra)values(@usuario,ENCRYPTBYPASSPHRASE(@patron,@contra))
-end
-
-create procedure sp_validarusuario
-	@usuario	varchar(50),
-	@contra		varchar(50),
-	@patron		varchar(50)
-as
-begin
-select*from usuarios where usuario=@usuario and CONVERT(VARCHAR(50),DECRYPTBYPASSPHRASE(@patron, contra))=@contra
-end
-
-select * from usuarios;
-select * from sys.procedures;
-
-sp_agregausuario 'admin','admin','panaderia'
-sp_agregausuario 'user','user','panaderia'
-
 -- Procedimientos Bocaditos almacenados
 Create Procedure sp_ListarBocaditos
 As
@@ -163,12 +108,14 @@ Create Procedure sp_GuardarBocaditos(
     @descripcionB         Varchar(100),
     @costoB                decimal,
     @fechaCreacionB     Date,
-    @fechaVencimiB         Date
+    @fechaVencimiB         Date,
+	@stockB			Int,
+	@imagenB			Varchar(Max)
 )
 As
 Begin
-    Insert Into Bocaditos(idMarca,nombreB,descripcionB,costoB,fechaCreacionB,fechaVencimiB) 
-    Values(@idMarca,@nombreB,@descripcionB,@costoB,@fechaCreacionB,@fechaVencimiB)
+    Insert Into Bocaditos(idMarca,nombreB,descripcionB,costoB,fechaCreacionB,fechaVencimiB,stockB,imagenB) 
+    Values(@idMarca,@nombreB,@descripcionB,@costoB,@fechaCreacionB,@fechaVencimiB,@stockB,@imagenB)
 End
 
 Create Procedure sp_EditarBocaditos(
@@ -178,12 +125,14 @@ Create Procedure sp_EditarBocaditos(
     @descripcionB         Varchar(100),
     @costoB                decimal,
     @fechaCreacionB     Date,
-    @fechaVencimiB         Date
+    @fechaVencimiB         Date,
+	@stockB			Int,
+	@imagenB			Varchar(Max)
 )
 As
 Begin
     Update Bocaditos Set idMarca = @idMarca, nombreB = @nombreB, descripcionB = @descripcionB,
-    costoB = @costoB, fechaCreacionB = @fechaCreacionB, fechaVencimiB = @fechaVencimiB
+    costoB = @costoB, fechaCreacionB = @fechaCreacionB, fechaVencimiB = @fechaVencimiB, stockB = @stockB, imagenB = @imagenB
     Where idBocaditos = @idBocaditos
 End
 
@@ -194,6 +143,20 @@ AS
 Begin
     Delete From Bocaditos Where idBocaditos = @idBocaditos
 End
+-- Pasteles
+create table Tortas (
+	idTortas		Int Identity(1,1) Not null,
+    idMarca			int not null,
+    nombreT			Varchar(25) not null,
+    descripcionT 	Varchar(100) null,
+    costoT			decimal not null,
+    fechaCreacionT 	Date,
+    fechaVencimi 	Date,
+	stockT			Int not null,
+	imagenT			Varchar(Max),
+    constraint pk_Tortas Primary key(idTortas),
+    constraint fk_MarcaT FOREIGN KEY(idMarca) REFERENCES Marca(idMarca),
+);
 -- Procedimientos Tortas almacenados
 Create Procedure sp_ListarTortas
 As
@@ -215,12 +178,14 @@ Create Procedure sp_GuardarTortas(
     @descripcionT         Varchar(100),
     @costoT                decimal,
     @fechaCreacionT     Date,
-    @fechaVencimi         Date
+    @fechaVencimi         Date,
+	@stockT			Int,
+	@imagenT			Varchar(Max)
 )
 As
 Begin
-    Insert Into Tortas(idMarca,nombreT,descripcionT,costoT,fechaCreacionT,fechaVencimi) 
-    Values(@idMarca,@nombreT,@descripcionT,@costoT,@fechaCreacionT,@fechaVencimi)
+    Insert Into Tortas(idMarca,nombreT,descripcionT,costoT,fechaCreacionT,fechaVencimi,stockT,imagenT) 
+    Values(@idMarca,@nombreT,@descripcionT,@costoT,@fechaCreacionT,@fechaVencimi,@stockT,@imagenT)
 End
 
 Create Procedure sp_EditarTortas(
@@ -230,12 +195,14 @@ Create Procedure sp_EditarTortas(
     @descripcionT         Varchar(100),
     @costoT                decimal,
     @fechaCreacionT     Date,
-    @fechaVencimi         Date
+    @fechaVencimi         Date,
+	@stockT			Int,
+	@imagenT			Varchar(Max)
 )
 As
 Begin
     Update Tortas Set idMarca = @idMarca, nombreT = @nombreT, descripcionT = @descripcionT,
-    costoT = @costoT, fechaCreacionT = @fechaCreacionT, fechaVencimi = @fechaVencimi
+    costoT = @costoT, fechaCreacionT = @fechaCreacionT, fechaVencimi = @fechaVencimi, stockT = @stockT, imagenT = @imagenT
     Where idTortas = @idTortas
 End
 
@@ -246,9 +213,76 @@ AS
 Begin
     Delete From Tortas Where idTortas = @idTortas
 End
--- Procedimientos Marca almacenados
-Create Procedure sp_ListarMarcas
+-- Marca
+create table Marca (
+	idMarca			Int Identity(1,1) Not null,
+    nombreM			Varchar(25) not null,
+    descripcionM 	Varchar(100) null,
+    constraint pk_Marca Primary key(idMarca)
+);
+
+Insert Into Marca Values ('Artesanal', 'Es la marca con lo que la panaderia vende sus propios productos.');
+Insert Into Marca Values ('Bimbo', 'Es una empresa mexicana y una de las compañías de panificación más grandes a nivel mundial.');
+Insert Into Marca Values ('Dempster', 'Es una marca canadiense de pan que ofrece una variedad de productos.');
+Insert Into Marca Values ('Aryzta', 'Es una empresa de panificación con sede en Suiza que suministra productos a nivel internacional.');
+Insert Into Marca Values ('Hovis', 'Marca británica de pan que se especializa en panes de trigo integral y productos relacionados.');
+
+-- USUARIOS
+create table Usuarios (
+	idUsuario	Int Identity(1,1) Not null,
+	usuario		Varchar(50) Not null,
+	correo		Varchar(50) Not null,
+	clave		Varchar(50) Not null,
+	rol		Varchar(30) Not null,
+    constraint pk_Usuarios Primary key(idUsuario),
+);
+
+Insert Into Usuarios Values('admin', 'admin@gmail.com', '123', 'ADMIN');
+Insert Into Usuarios Values('user', 'user@gmail.com', '123', 'USER');
+
+Create Procedure sp_ListarUsuarios
 As
 Begin
-    Select * From Marca 
+    Select * From Usuarios 
+End
+
+Create Procedure sp_ObtenerUsuarios(
+    @idUsuario    int
+)
+AS
+Begin
+    Select * From Usuarios Where idUsuario = @idUsuario
+End
+
+Create Procedure sp_GuardarUsuarios(
+	@usuario		Varchar(50),
+	@correo		Varchar(50),
+	@clave		Varchar(50),
+	@rol		Varchar(30)
+)
+As
+Begin
+    Insert Into Usuarios(usuario,correo,clave,rol) 
+    Values(@usuario,@correo,@clave,@rol)
+End
+
+Create Procedure sp_EditarUsuarios(
+    @idUsuario   int,
+    @usuario	Varchar(50),
+	@correo		Varchar(50),
+	@clave		Varchar(50),
+	@rol		Varchar(30)
+)
+As
+Begin
+    Update Usuarios Set usuario = @usuario, correo = @correo, clave = @clave, rol = @rol
+    Where idUsuario = @idUsuario
+End
+
+Create Procedure sp_EliminarUsuarios(
+    @idUsuario    int
+)
+AS
+Begin
+    Delete From Usuarios Where idUsuario = @idUsuario
 End

@@ -1,0 +1,43 @@
+﻿@model List<UsuariosModel>
+@{
+    ViewData["Title"] = "ListarUser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Listado de Usuarios
+    </div>
+    <div class="card-body">
+        <a asp-action="Guardar" asp-controller="Acceso" class="btn btn-success"><i class="bi bi-person-plus-fill"></i> Registrar</a>
+        <hr />
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th class="text-center" style="vertical-align: middle;">Usuario</th>
+                    <th class="text-center" style="vertical-align: middle;">Correo</th>
+                    <th class="text-center" style="vertical-align: middle;">Contraseña</th>
+                    <th class="text-center" style="vertical-align: middle;">Rol</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td style="vertical-align: middle;">@item.usuario</td>
+                        <td style="vertical-align: middle;">@item.correo</td>
+                        <td style="vertical-align: middle;">@item.clave</td>
+                        <td style="vertical-align: middle;">@item.rol</td>
+                        <td style="vertical-align: middle;" class="text-center">
+                            <a asp-action="Editar" asp-controller="Acceso" class="btn btn-primary" asp-route-idUsuario="@item.idUsuario"><i class="bi bi-pencil-square"></i></a>
+                        </td>
+                        <td style="vertical-align: middle;" class="text-center">
+                            <a asp-action="Eliminar" asp-controller="Acceso" class="btn btn-danger" asp-route-idUsuario="@item.idUsuario"><i class="bi bi-trash-fill"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
