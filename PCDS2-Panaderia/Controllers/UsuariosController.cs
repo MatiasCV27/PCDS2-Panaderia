@@ -76,6 +76,12 @@ namespace PCDS2_Panaderia.Controllers
                 return View();
         }
 
+        // Ver Compras
+        public IActionResult VerCompras()
+        {
+            return View();
+        }
+
         // Usuario Crea su propia cuenta
         public IActionResult GuardarPropioUser()
         {

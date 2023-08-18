@@ -28,45 +28,51 @@
                         </li>
                         @if(User.IsInRole("ADMIN"))
                         {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Panes" asp-action="Listar">Panes</a>
-                            </li>
+                            <div class="dropdown">
+                                <a class="nav-link text-dark dropdown-toggle" data-bs-toggle="dropdown">Administrar</a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Panes" asp-action="Listar">Panes</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Bocaditos" asp-action="Listar">Bocaditos</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Tortas" asp-action="Listar">Pasteles</a>
+                                    </li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="ListarUser">Registrar</a>
+                                    </li>
+                                </ul>
+                            </div>
                         }
-                        @if(User.IsInRole("ADMIN"))
+                        @if (!User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Bocaditos" asp-action="Listar">Bocaditos</a>
-                            </li>
-                        }   
-                        @if(User.IsInRole("ADMIN"))
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Tortas" asp-action="Listar">Pasteles</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="GuardarPropioUser">Registrarse</a>
                             </li>
                         }
-                        @if (User.IsInRole("ADMIN"))
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="ListarUser">Registrar</a>
-                            </li>
-                        }
-                        @if (User.IsInRole("ADMIN") || User.IsInRole("USER"))
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Acceso" asp-action="Salir">Salir</a>
-                            </li>
-                        }
-                        @if (!(User.IsInRole("ADMIN") || User.IsInRole("USER")))
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="GuardarPropioUser">Registrar</a>
-                            </li>
-                        }
-                        @if (!(User.IsInRole("ADMIN") || User.IsInRole("USER")))
+                        @if (!User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Acceso" asp-action="Login">Login</a>
                             </li>
+                        }
+                        @if (User.Identity.IsAuthenticated) 
+                        {
+                            <div class="dropdown">
+                                <a class="nav-link text-dark dropdown-toggle" data-bs-toggle="dropdown"><strong>@User.Identity.Name</strong></a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="VerCompras">Ver Compras</a>
+                                    </li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Acceso" asp-action="Salir">Salir</a>
+                                    </li>
+                                </ul>
+                            </div>
                         }
                     </ul>
                 </div>
