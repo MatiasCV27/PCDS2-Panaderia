@@ -1,0 +1,22 @@
+﻿@model List<BocaditosModel>
+@{
+    ViewData["Title"] = "Ver_Bocaditos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="contenedor">
+    <div class="contenedor-items">
+        <!-- Contenedor de elementos -->
+        @foreach (var item in Model)
+        {
+            <div class="item">
+                <span class="titulo-item">@item.nombreB</span>
+                <img src="@item.imagenB" class="img-item" />
+                <span class="precio-item">S/. @item.costoB</span>
+                <button class="boton-item">Agregar al carrito</button>
+            </div>
+        }
+        <!-- Carrito de Compras -->
+    </div>
+</section>
+

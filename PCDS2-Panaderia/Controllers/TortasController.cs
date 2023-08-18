@@ -6,22 +6,24 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace PCDS2_Panaderia.Controllers
 {
-    [Authorize(Roles = "ADMIN")]
     public class TortasController : Controller
     {
         TortasData _TorData = new TortasData();
 
+        [Authorize(Roles = "ADMIN")]
         public IActionResult Listar()
         {
             // La vista mostrara una Lista de Personas
             var oLista = _TorData.ListarTortas();
             return View(oLista);
         }
+        [Authorize(Roles = "ADMIN")]
         public IActionResult Guardar()
         {
             // Metodo solo vuelve a la Vista
             return View();
         }
+        [Authorize(Roles = "ADMIN")]
         [HttpPost]
         public IActionResult Guardar(TortasModel oTor)
         {
@@ -36,11 +38,13 @@ namespace PCDS2_Panaderia.Controllers
             else
                 return View();
         }
+        [Authorize(Roles = "ADMIN")]
         public IActionResult Editar(int idTortas)
         {
             var oTorta = _TorData.ObtenerTortas(idTortas);
             return View(oTorta);
         }
+        [Authorize(Roles = "ADMIN")]
         [HttpPost]
         public IActionResult Editar(TortasModel oTorta)
         {
@@ -54,11 +58,13 @@ namespace PCDS2_Panaderia.Controllers
             else
                 return View();
         }
+        [Authorize(Roles = "ADMIN")]
         public IActionResult Eliminar(int idTortas)
         {
             var oTorta = _TorData.ObtenerTortas(idTortas);
             return View(oTorta);
         }
+        [Authorize(Roles = "ADMIN")]
         [HttpPost]
         public IActionResult Eliminar(TortasModel oTorta)
         {
@@ -68,6 +74,14 @@ namespace PCDS2_Panaderia.Controllers
                 return RedirectToAction("Listar");
             else
                 return View();
+        }
+
+        // User Vista:
+        public IActionResult Ver_Pasteles()
+        {
+            // La vista mostrara una Lista de Personas
+            var oLista = _TorData.ListarTortas();
+            return View(oLista);
         }
     }
 }

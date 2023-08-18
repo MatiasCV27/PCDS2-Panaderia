@@ -4,5 +4,68 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1 cite="mt-5 text-center"><strong>Aqui se podran ver las compras realizadas</strong></h1>
+<div class="encoger-contenedor">
+    <div class="resumen-container">
+        <div class="HeaderRes">
+            <h3 class="HeadingRes">Resumen de compra</h3>
+        </div>
+        <br>
+        <div class="resumen-items">
+        </div>
+        <div class="footerRes">
+            <div class="checkoutRes">
+                <div class="total">
+                    <div lass="Subtotal1"><div class="Subtotal">Total</div></div>
+                    <div class="total-amount">S/. 0.00</div>
+                </div>
+                <button class="buttonRes">Pagar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var carritoItems = JSON.parse(localStorage.getItem('carritoItems'));
+        var resumenItemsContainer = document.querySelector('.resumen-items');
+        var totalAmountElement = document.querySelector('.total-amount');
+
+        if (carritoItems && resumenItemsContainer) {
+            var total = 0;
+
+            carritoItems.forEach(function (item) {
+                var itemElement = document.createElement('div');
+                itemElement.classList.add('resumen-item');
+                itemElement.innerHTML = `
+                  <div class="CartContainer">
+                     <div class="Cart-Items">
+                         <div class="image-boxRes">
+                             <img src="${item.imagenSrc}" style="height: 120px;" />
+                         </div>
+                         <div class="aboutRes">
+                             <h1 class="titleRes">${item.titulo}</h1>
+                         </div>
+                         <div class="counterRes">
+                             <div class="countRes">${item.cantidad}</div>
+                         </div>
+                         <div class="pricesRes">
+                             <div class="amountRes">${item.precio}</div>
+                         </div>
+                    </div>
+                  </div>
+                  <br>`;
+                resumenItemsContainer.appendChild(itemElement);
+
+                var count = parseFloat(item.cantidad);
+                var priceText = itemElement.querySelector('.amountRes').textContent;
+                var price = parseFloat(priceText.substring(3)); // Elimina los primeros 3 caracteres "S/. "
+                var itemTotal = count * price;
+                total += itemTotal;
+            });
+
+            totalAmountElement.textContent = 'S/. ' + total.toFixed(2);
+        } else {
+            // Manejar el caso donde no hay elementos en el carrito
+        }
+    });
+</script>
 

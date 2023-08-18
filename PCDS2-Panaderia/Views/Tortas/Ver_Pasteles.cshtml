@@ -1,0 +1,21 @@
+﻿@model List<TortasModel>
+@{
+    ViewData["Title"] = "Ver_Pasteles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="contenedor">
+    <div class="contenedor-items">
+        <!-- Contenedor de elementos -->
+        @foreach (var item in Model)
+        {
+            <div class="item">
+                <span class="titulo-item">@item.nombreT</span>
+                <img src="@item.imagenT" class="img-item"/>
+                <span class="precio-item">S/. @item.costoT</span>
+                <button class="boton-item">Agregar al carrito</button>
+            </div>
+        }
+        <!-- Carrito de Compras -->
+    </div>
+</section>
+

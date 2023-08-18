@@ -194,3 +194,187 @@
         width: 100%;
     }
 }
+
+/* ESTILOS DEL RESUMEN */
+.encoger-contenedor {
+    transform: scale(0.70);
+}
+
+.CartContainer {
+    width: 940px;
+    height: 90%;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+}
+.HeaderRes {
+    width: 950px;
+    height: 90%;
+    background-color: #000000;
+    border-radius: 20px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.footerRes {
+    width: 950px;
+    height: 90%;
+    background-color: #000000;
+    border-radius: 20px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.checkoutRes {
+    margin: 30px;
+    margin-left: 650px;
+}
+.HeadingRes {
+    margin: 30px;
+    margin-left: 372px;
+    font-size: 20px;
+    font-family: 'Open Sans';
+    font-weight: 700;
+    color: #ffffff;
+}
+.ActionRes {
+    font-size: 14px;
+    font-family: 'Open Sans';
+    font-weight: 600;
+    color: #E44C4C;
+    cursor: pointer;
+    border-bottom: 1px solid #E44C4C;
+}
+.Cart-Items {
+    margin: auto;
+    width: 90%;
+    height: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.image-boxRes {
+    width: 15%;
+    text-align: center;
+}
+.aboutRes {
+    height: 100%;
+    width: 24%;
+}
+.titleRes {
+    padding-top: 10px;
+    line-height: 21px;
+    font-size: 20px;
+    font-family: 'Open Sans';
+    font-weight: 800;
+    color: #202020;
+}
+.subtitleRes {
+    line-height: 10px;
+    font-size: 18px;
+    font-family: 'Open Sans';
+    font-weight: 600;
+    color: #909090;
+}
+.counter {
+    width: 15%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.btnRes {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #d9d9d9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-family: 'Open Sans';
+    font-weight: 900;
+    color: #202020;
+    cursor: pointer;
+}
+.countRes {
+    font-size: 20px;
+    font-family: 'Open Sans';
+    font-weight: 600;
+    color: #202020;
+}
+.pricesRes {
+    height: 100%;
+    text-align: right;
+}
+.amountRes {
+    padding-top: 20px;
+    font-size: 26px;
+    font-family: 'Open Sans';
+    font-weight: 800;
+    color: #202020;
+}
+.saveRes {
+    padding-top: 5px;
+    font-size: 14px;
+    font-family: 'Open Sans';
+    font-weight: 600;
+    color: #1687d9;
+    cursor: pointer;
+}
+.removeRes {
+    padding-top: 5px;
+    font-size: 14px;
+    font-family: 'Open Sans';
+    font-weight: 600;
+    color: #E44C4C;
+    cursor: pointer;
+}
+.padRes {
+    margin-top: 5px;
+}
+.checkoutRes {
+    float: right;
+    margin-right: 5%;
+    width: 28%;
+}
+.total {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.Subtotal {
+    font-size: 22px;
+    font-family: 'Open Sans';
+    font-weight: 700;
+    color: #ffffff;
+}
+.items {
+    font-size: 16px;
+    font-family: 'Open Sans';
+    font-weight: 500;
+    color: #909090;
+    line-height: 10px;
+}
+.total-amount {
+    font-size: 36px;
+    font-family: 'Open Sans';
+    font-weight: 900;
+    color: #ffffff;
+}
+.buttonRes {
+    margin-top: 10px;
+    width: 100%;
+    height: 40px;
+    border: none;
+    background: linear-gradient(to bottom right, #B8D7FF, #8EB7EB);
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'Open Sans';
+    font-weight: 600;
+    color: #202020;
+}
