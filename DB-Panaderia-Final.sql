@@ -2,6 +2,12 @@ create database DBPanaderia;
 go
 use DBPanaderia;
 go
+
+Select * From Panes
+Select * From Bocaditos
+Select * From Tortas
+Select * From Usuarios
+ 
 -- Panes
 create table Panes (
 	idPanes 		Int Identity(1,1) Not null,
@@ -302,6 +308,3 @@ Begin
     Delete From Usuarios Where idUsuario = @idUsuario
 End
 go
-
-DBpanaderiaejecutardeuna.sql
-9 KB
