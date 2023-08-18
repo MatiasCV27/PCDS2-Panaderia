@@ -23,7 +23,7 @@ namespace PCDS2_Panaderia.Data
                         oLista.Add(new BocaditosModel()
                         {
                             idBocaditos = Convert.ToInt32(dr["idBocaditos"]),
-                            idMarca = Convert.ToInt32(dr["idMarca"]),
+                            marcaB = dr["marcaB"].ToString(),
                             nombreB = dr["nombreB"].ToString(),
                             descripcionB = dr["descripcionB"].ToString(),
                             costoB = Convert.ToDecimal(dr["costoB"]),
@@ -53,7 +53,7 @@ namespace PCDS2_Panaderia.Data
                     while (dr.Read())
                     {
                         oBocados.idBocaditos = Convert.ToInt32(dr["idBocaditos"]);
-                        oBocados.idMarca = Convert.ToInt32(dr["idMarca"]);
+                        oBocados.marcaB = dr["marcaB"].ToString();
                         oBocados.nombreB = dr["nombreB"].ToString();
                         oBocados.descripcionB = dr["descripcionB"].ToString();
                         oBocados.costoB = Convert.ToDecimal(dr["costoB"]);
@@ -77,7 +77,7 @@ namespace PCDS2_Panaderia.Data
                 {
                     con.Open();
                     SqlCommand cmd = new SqlCommand("sp_GuardarBocaditos", con);
-                    cmd.Parameters.AddWithValue("idMarca", oBoca.idMarca);
+                    cmd.Parameters.AddWithValue("marcaB", oBoca.marcaB);
                     cmd.Parameters.AddWithValue("nombreB", oBoca.nombreB);
                     cmd.Parameters.AddWithValue("descripcionB", oBoca.descripcionB);
                     cmd.Parameters.AddWithValue("costoB", oBoca.costoB);
@@ -110,7 +110,7 @@ namespace PCDS2_Panaderia.Data
                     con.Open();
                     SqlCommand cmd = new SqlCommand("sp_EditarBocaditos", con);
                     cmd.Parameters.AddWithValue("idBocaditos", oBoca.idBocaditos);
-                    cmd.Parameters.AddWithValue("idMarca", oBoca.idMarca);
+                    cmd.Parameters.AddWithValue("marcaB", oBoca.marcaB);
                     cmd.Parameters.AddWithValue("nombreB", oBoca.nombreB);
                     cmd.Parameters.AddWithValue("descripcionB", oBoca.descripcionB);
                     cmd.Parameters.AddWithValue("costoB", oBoca.costoB);

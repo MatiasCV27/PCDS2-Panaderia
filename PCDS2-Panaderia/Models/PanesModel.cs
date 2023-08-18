@@ -8,7 +8,7 @@ namespace PCDS2_Panaderia.Models
         [Required]
         public int idPanes { get; set; }
         [Required]
-        public int idMarca { get; set; }
+        public string? marcaP { get; set; }
         [Required]
         public string? nombreP { get; set; }
         [Required]

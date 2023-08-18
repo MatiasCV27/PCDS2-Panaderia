@@ -11,8 +11,14 @@
         <form asp-action="Guardar" asp-controller="Tortas" method="post">
             <div class="mb-3">
                 <label class="form-label">Marca</label>
-                <input asp-for="idMarca" type="number" class="form-control">
-                <span asp-validation-for="idMarca" class="text-danger"></span>
+                <select asp-for="marcaB" class="form-control">
+                    <option value="Artesanal">Artesanal</option>
+                    <option value="Bimbo">Bimbo</option>
+                    <option value="Dempster">Dempster</option>
+                    <option value="Aryzta">Aryzta</option>
+                    <option value="Hovis">Hovis</option>
+                </select>
+                <span asp-validation-for="marcaB" class="text-danger"></span>
             </div>
             <div class="mb-3">
                 <label class="form-label">Nombre del Pastel</label>

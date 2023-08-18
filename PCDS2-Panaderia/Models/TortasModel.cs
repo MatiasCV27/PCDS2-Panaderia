@@ -6,7 +6,7 @@ namespace PCDS2_Panaderia.Models
     {
         public int idTortas { get; set; }
         [Required]
-        public int idMarca { get; set; }
+        public string? marcaB { get; set; }
         [Required]
         public string? nombreT { get; set; }
         [Required]

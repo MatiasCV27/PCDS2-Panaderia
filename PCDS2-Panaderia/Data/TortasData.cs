@@ -23,7 +23,7 @@ namespace PCDS2_Panaderia.Data
                         oLista.Add(new TortasModel()
                         {
                             idTortas = Convert.ToInt32(dr["idTortas"]),
-                            idMarca = Convert.ToInt32(dr["idMarca"]),
+                            marcaB = dr["marcaB"].ToString(),
                             nombreT = dr["nombreT"].ToString(),
                             descripcionT = dr["descripcionT"].ToString(),
                             costoT = Convert.ToDecimal(dr["costoT"]),
@@ -53,7 +53,7 @@ namespace PCDS2_Panaderia.Data
                     while (dr.Read())
                     {
                         oTortas.idTortas = Convert.ToInt32(dr["idTortas"]);
-                        oTortas.idMarca = Convert.ToInt32(dr["idMarca"]);
+                        oTortas.marcaB = dr["marcaB"].ToString();
                         oTortas.nombreT = dr["nombreT"].ToString();
                         oTortas.descripcionT = dr["descripcionT"].ToString();
                         oTortas.costoT = Convert.ToDecimal(dr["costoT"]);
@@ -77,7 +77,7 @@ namespace PCDS2_Panaderia.Data
                 {
                     con.Open();
                     SqlCommand cmd = new SqlCommand("sp_GuardarTortas", con);
-                    cmd.Parameters.AddWithValue("idMarca", oTorta.idMarca);
+                    cmd.Parameters.AddWithValue("marcaB", oTorta.marcaB);
                     cmd.Parameters.AddWithValue("nombreT", oTorta.nombreT);
                     cmd.Parameters.AddWithValue("descripcionT", oTorta.descripcionT);
                     cmd.Parameters.AddWithValue("costoT", oTorta.costoT);
@@ -110,7 +110,7 @@ namespace PCDS2_Panaderia.Data
                     con.Open();
                     SqlCommand cmd = new SqlCommand("sp_EditarTortas", con);
                     cmd.Parameters.AddWithValue("idTortas", oTorta.idTortas);
-                    cmd.Parameters.AddWithValue("idMarca", oTorta.idMarca);
+                    cmd.Parameters.AddWithValue("marcaB", oTorta.marcaB);
                     cmd.Parameters.AddWithValue("nombreT", oTorta.nombreT);
                     cmd.Parameters.AddWithValue("descripcionT", oTorta.descripcionT);
                     cmd.Parameters.AddWithValue("costoT", oTorta.costoT);

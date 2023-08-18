@@ -23,7 +23,7 @@ namespace PCDS2_Panaderia.Data
                         oLista.Add(new PanesModel()
                         {
                             idPanes = Convert.ToInt32(dr["idPanes"]),
-                            idMarca = Convert.ToInt32(dr["idMarca"]),
+                            marcaP = dr["marcaP"].ToString(),
                             nombreP = dr["nombreP"].ToString(),
                             descripcionP = dr["descripcionP"].ToString(),
                             costoP = Convert.ToDecimal(dr["costoP"]),
@@ -53,7 +53,7 @@ namespace PCDS2_Panaderia.Data
                     while (dr.Read())
                     {
                         oPanes.idPanes = Convert.ToInt32(dr["idPanes"]);
-                        oPanes.idMarca = Convert.ToInt32(dr["idMarca"]);
+                        oPanes.marcaP = dr["marcaP"].ToString();
                         oPanes.nombreP = dr["nombreP"].ToString();
                         oPanes.descripcionP = dr["descripcionP"].ToString();
                         oPanes.costoP = Convert.ToDecimal(dr["costoP"]);
@@ -77,7 +77,7 @@ namespace PCDS2_Panaderia.Data
                 {
                     con.Open();
                     SqlCommand cmd = new SqlCommand("sp_GuardarPanes", con);
-                    cmd.Parameters.AddWithValue("idMarca", oPanes.idMarca);
+                    cmd.Parameters.AddWithValue("marcaP", oPanes.marcaP);
                     cmd.Parameters.AddWithValue("nombreP", oPanes.nombreP);
                     cmd.Parameters.AddWithValue("descripcionP", oPanes.descripcionP);
                     cmd.Parameters.AddWithValue("costoP", oPanes.costoP);
@@ -110,7 +110,7 @@ namespace PCDS2_Panaderia.Data
                     con.Open();
                     SqlCommand cmd = new SqlCommand("sp_EditarPanes", con);
                     cmd.Parameters.AddWithValue("idPanes", oPanes.idPanes);
-                    cmd.Parameters.AddWithValue("idMarca", oPanes.idMarca);
+                    cmd.Parameters.AddWithValue("marcaP", oPanes.marcaP);
                     cmd.Parameters.AddWithValue("nombreP", oPanes.nombreP);
                     cmd.Parameters.AddWithValue("descripcionP", oPanes.descripcionP);
                     cmd.Parameters.AddWithValue("costoP", oPanes.costoP);
