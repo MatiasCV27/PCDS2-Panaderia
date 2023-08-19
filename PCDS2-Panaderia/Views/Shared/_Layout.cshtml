@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="~/css/estilos.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="~/PCDS2_Panaderia.styles.css" asp-append-version="true" />
 </head>
 <body>
     <header>
@@ -40,7 +39,7 @@
                         @if(User.IsInRole("ADMIN"))
                         {
                             <div class="dropdown">
-                                <a class="nav-link text-dark dropdown-toggle" data-bs-toggle="dropdown">Administrar</a>
+                                <a class="nav-link text-dark dropdown-toggle" data-bs-toggle="dropdown">Mantenimiento</a>
                                 <ul class="dropdown-menu">
                                     <li class="nav-item">
                                         <a class="nav-link text-dark" asp-area="" asp-controller="Panes" asp-action="Listar">Panes</a>
@@ -75,10 +74,10 @@
                             <div class="dropdown">
                                 <a class="nav-link text-dark dropdown-toggle" data-bs-toggle="dropdown"><strong>@User.Identity.Name</strong></a>
                                 <ul class="dropdown-menu">
-                                    <li class="nav-item">
+                                    @* <li class="nav-item">
                                         <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="VerCompras">Resumen de Compras</a>
-                                    </li>
-                                    <li><hr class="dropdown-divider"></li>
+                                    </li> 
+                                    <li><hr class="dropdown-divider"></li>*@
                                     <li class="nav-item">
                                         <a class="nav-link text-dark" asp-area="" asp-controller="Acceso" asp-action="Salir">Salir</a>
                                     </li>

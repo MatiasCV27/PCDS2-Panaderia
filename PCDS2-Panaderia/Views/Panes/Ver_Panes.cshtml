@@ -12,11 +12,11 @@
         {
             <div class="item">
                 <span class="titulo-item">@item.nombreP</span>
-                <span class="titulo-item d-none">@item.idPanes</span>
+                <span class="idProducto-item d-none">@item.idPanes</span>
                 <span class="otros-item">@item.marcaP</span>
                 <img src="@item.imagenP" class="img-item"/>
                 <span class="precio-item">S/. @item.costoP</span>
-                <span class="otros-item">Disponible @item.stockP</span>
+                <span class="stock-item d-none">Disponible @item.stockP</span>
                 <button class="boton-item">Agregar al carrito</button>
             </div>
         }
@@ -24,7 +24,7 @@
     <!-- Carrito de Compras -->
     <div class="carrito" id="carrito">
         <div class="header-carrito">
-            <h2>Tu Compras</h2>
+            <h4>Resumen de las Compras</h4>
         </div>
         <div class="carrito-items">
         </div>
@@ -35,7 +35,7 @@
                     $120.000,00
                 </span>
             </div>
-            <button class="btn-pagar">Pagar <i class="fa-solid fa-bag-shopping"></i> </button>
+            <button class="btn-pagar">Comprar <i class="fa-solid fa-bag-shopping"></i> </button>
         </div>
     </div>
 </section>
