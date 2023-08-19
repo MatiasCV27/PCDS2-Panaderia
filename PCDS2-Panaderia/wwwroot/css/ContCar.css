@@ -384,3 +384,12 @@
     font-weight: 600;
     color: #202020;
 }
+
+.textNoLogin {
+    text-decoration: none;
+    text-align: center;
+    color: black;
+}
+.textNoLogin:hover {
+    color: darkgray;
+}

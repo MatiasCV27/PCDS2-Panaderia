@@ -1,4 +1,5 @@
 ﻿@model List<TortasModel>
+@using Microsoft.AspNetCore.Identity;
 @{
     ViewData["Title"] = "Ver_Pasteles";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -32,7 +33,14 @@
                     $120.000,00
                 </span>
             </div>
-            <button class="btn-pagar">Ir a Comprar <i class="fa-solid fa-bag-shopping"></i> </button>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <button class="btn-pagar">Comprar <i class="fa-solid fa-bag-shopping"></i> </button>
+            }
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <a class="textNoLogin" asp-controller="Usuarios" asp-action="GuardarPropioUser"><strong>Debes tener una cuenta para comprar..</strong></a>
+            }
         </div>
     </div>
 </section>
