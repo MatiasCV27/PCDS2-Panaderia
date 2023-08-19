@@ -90,7 +90,7 @@ function hacerVisibleCarrito() {
     carrito.style.opacity = '1';
 
     var items = document.getElementsByClassName('contenedor-items')[0];
-    items.style.width = '60%';
+    items.style.width = '65%';
 }
 
 //Funciòn que agrega un item al carrito
