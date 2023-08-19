@@ -1,13 +1,13 @@
 ﻿
 @{
-    ViewData["Title"] = "VerCompras";
+    ViewData["Title"] = "Resumen de Compras";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="encoger-contenedor">
     <div class="resumen-container">
         <div class="HeaderRes">
-            <h3 class="HeadingRes">Resumen de compra</h3>
+            <h3 class="HeadingRes">Resumen de la compra</h3>
         </div>
         <br>
         <div class="resumen-items">
@@ -15,10 +15,9 @@
         <div class="footerRes">
             <div class="checkoutRes">
                 <div class="total">
-                    <div lass="Subtotal1"><div class="Subtotal">Total</div></div>
-                    <div class="total-amount">S/. 0.00</div>
+                    <div lass="Subtotal1"><div class="Subtotal">Total: </div></div>
+                    <div class="total-amount ">S/. 0.00</div>
                 </div>
-                <button class="buttonRes">Pagar</button>
             </div>
         </div>
     </div>
@@ -36,10 +35,10 @@
                 var itemElement = document.createElement('div');
                 itemElement.classList.add('resumen-item');
                 itemElement.innerHTML = `
-                  <div class="CartContainer">
+                  <div class="CartContainer mx-auto">
                      <div class="Cart-Items">
                          <div class="image-boxRes">
-                             <img src="${item.imagenSrc}" style="height: 120px;" />
+                             <img src="${item.imagenSrc}" style="height: 90px;" />
                          </div>
                          <div class="aboutRes">
                              <h1 class="titleRes">${item.titulo}</h1>

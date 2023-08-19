@@ -12,7 +12,7 @@ function ready() {
 
     //Agregremos funcionalidad a los botones eliminar del carrito
     var botonesEliminarItem = document.getElementsByClassName('btn-eliminar');
-    for (var i = 0; i < botonesEliminarItem.length; i++) {
+    for (var i = 0; i < botonesEliminarItem.length; i++) {  
         var button = botonesEliminarItem[i];
         button.addEventListener('click', eliminarItemCarrito);
     }
@@ -53,8 +53,6 @@ function pagarClicked() {
         var cantidad = item.querySelector('.carrito-item-cantidad').value;
         var precio = item.querySelector('.carrito-item-precio').innerText;
 
-
-
         items.push({ imagenSrc, titulo, cantidad, precio });
     }
 
@@ -65,6 +63,7 @@ function pagarClicked() {
     while (carritoItems.hasChildNodes()) {
         carritoItems.removeChild(carritoItems.firstChild)
     }
+    alert("Gracias por su compra, ¡Vuelva pronto!")
     actualizarTotalCarrito();
     ocultarCarrito();
 }

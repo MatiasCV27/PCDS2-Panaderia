@@ -1,4 +1,5 @@
 ﻿@model List<PanesModel>
+
 @{
     ViewData["Title"] = "Ver_Panes";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -11,8 +12,11 @@
         {
             <div class="item">
                 <span class="titulo-item">@item.nombreP</span>
+                <span class="titulo-item d-none">@item.idPanes</span>
+                <span class="otros-item">@item.marcaP</span>
                 <img src="@item.imagenP" class="img-item"/>
                 <span class="precio-item">S/. @item.costoP</span>
+                <span class="otros-item">Disponible @item.stockP</span>
                 <button class="boton-item">Agregar al carrito</button>
             </div>
         }

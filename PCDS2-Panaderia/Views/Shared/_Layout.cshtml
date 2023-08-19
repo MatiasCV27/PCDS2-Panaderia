@@ -29,13 +29,13 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Panes" asp-action="Ver_Panes">Ver Panes</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Panes" asp-action="Ver_Panes">Panes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Bocaditos" asp-action="Ver_Bocaditos">Ver Bocaditos</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Bocaditos" asp-action="Ver_Bocaditos">Bocaditos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Tortas" asp-action="Ver_Pasteles">Ver Pasteles</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Tortas" asp-action="Ver_Pasteles">Pasteles</a>
                         </li>
                         @if(User.IsInRole("ADMIN"))
                         {
@@ -76,7 +76,7 @@
                                 <a class="nav-link text-dark dropdown-toggle" data-bs-toggle="dropdown"><strong>@User.Identity.Name</strong></a>
                                 <ul class="dropdown-menu">
                                     <li class="nav-item">
-                                        <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="VerCompras">Ver Compras</a>
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="VerCompras">Resumen de Compras</a>
                                     </li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li class="nav-item">
@@ -90,8 +90,8 @@
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+    <div class="">
+        <main role="main">
             @RenderBody()
         </main>
     </div>
