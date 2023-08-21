@@ -4,12 +4,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<section class="contenedor">
+<section class="contenedor mt-4 mb-4">
     <div class="contenedor-items">
         <!-- Contenedor de elementos -->
         @foreach (var item in Model)
         {
-            <div class="item">
+            <div class="item" style="background: white">
                 <span class="titulo-item">@item.nombreB</span>
                 <span class="titulo-item d-none">@item.idBocaditos</span>
                 <span class="otros-item">@item.marcaB</span>

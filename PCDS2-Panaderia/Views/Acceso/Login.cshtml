@@ -5,21 +5,27 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="container mt-5">
-    <div class="col-lg-4 mx-auto">
-        <form asp-controller="Acceso" asp-action="ValidarUser" method="post">
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Usuario</label>
-                <input type="text" class="form-control" asp-for="usuario">
+<div class="loginCont">
+    <div class="container">
+        <div class="col-lg-4 col-md-8 col-sm-10 mx-auto">
+            <div class="login-box">
+                <h4 class="text-white text-center" style="padding: .75em 0">Login de la Página</h4>
+                <form asp-controller="Acceso" asp-action="ValidarUser" method="post">
+                    <div class="user-box">
+                        <input type="text" asp-for="usuario" required="" />
+                        <label>Usuario:</label>
+                    </div>
+                    <div class="user-box">
+                        <input type="password" asp-for="clave" required="" />
+                        <label>Contraseña:</label>
+                    </div>
+                    <p style="margin: 0;" align="center"><a class="sinCuenta" asp-controller="Usuarios" asp-action="GuardarPropioUser">¿No tienes cuenta?, click aqui</a></p>
+                    <center>
+                        <button type="submit" id="EnviarB"><strong>Ingresar</strong></button>
+                    </center>
+                </form>
             </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                <input type="password" class="form-control" asp-for="clave">
-            </div>
-            <div>
-                <p><a asp-controller="Usuarios" asp-action="GuardarPropioUser">¿No tienes cuenta?, click aqui</a></p>
-            </div>
-            <button type="submit" class="btn btn-primary">Ingresar</button>
-        </form>
+        </div>
     </div>
 </div>
+

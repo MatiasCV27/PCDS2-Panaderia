@@ -4,62 +4,70 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<<div class="card">
-    <div class="card-header">
-        Editar Bocadito
-    </div>
-    <div class="card-body">
-        <form asp-action="Editar" asp-controller="Bocaditos" method="post">
-            <input asp-for="idBocaditos" type="hidden" class="form-control">
-            <div class="mb-3">
-                <label class="form-label">Marca</label>
-                <select asp-for="marcaB" class="form-control">
-                    <option value="Artesanal">Artesanal</option>
-                    <option value="Bimbo">Bimbo</option>
-                    <option value="Dempster">Dempster</option>
-                    <option value="Aryzta">Aryzta</option>
-                    <option value="Hovis">Hovis</option>
-                </select>
-                <span asp-validation-for="marcaB" class="text-danger"></span>
+<div class="imgEditarBoca">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <<div class="card" style="border: 1px solid white">
+                    <div class="card-header bg-dark text-white">
+                        <h2 class="text-center"><strong>Editar Datos del Bocadito</strong></h2>
+                    </div>
+                    <div class="card-body bg-dark text-white">
+                        <form asp-action="Editar" asp-controller="Bocaditos" method="post">
+                            <input asp-for="idBocaditos" type="hidden" class="form-control">
+                            <div class="mb-3">
+                                <label class="form-label">Marca</label>
+                                <select asp-for="marcaB" class="form-control">
+                                    <option value="Artesanal">Artesanal</option>
+                                    <option value="Bimbo">Bimbo</option>
+                                    <option value="Dempster">Dempster</option>
+                                    <option value="Aryzta">Aryzta</option>
+                                    <option value="Hovis">Hovis</option>
+                                </select>
+                                <span asp-validation-for="marcaB" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Nombre del Bocadito</label>
+                                <input asp-for="nombreB" type="text" class="form-control">
+                                <span asp-validation-for="nombreB" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Descripcion del Bocadito</label>
+                                <input asp-for="descripcionB" type="text" class="form-control">
+                                <span asp-validation-for="descripcionB" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Costo del Bocadito</label>
+                                <input asp-for="costoB" type="number" class="form-control">
+                                <span asp-validation-for="costoB" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Fecha de Creacion</label>
+                                <input asp-for="fechaCreacionB" type="date" class="form-control">
+                                <span asp-validation-for="fechaCreacionB" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Fecha de Vencimiento</label>
+                                <input asp-for="fechaVencimiB" type="date" class="form-control">
+                                <span asp-validation-for="fechaVencimiB" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Stock Disponible</label>
+                                <input asp-for="stockB" type="number" class="form-control">
+                                <span asp-validation-for="stockB" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Imagen</label>
+                                <input asp-for="imagenB" type="text" class="form-control">
+                                <span asp-validation-for="imagenB" class="text-danger"></span>
+                            </div>
+                            <button type="submit" class="btn btn-primary"><i class="bi bi-cloud-download-fill"></i>Guardar</button>
+                            <a asp-action="Listar" asp-controller="Bocaditos" class="btn btn-warning"><i class="bi bi-arrow-left"></i>Volver a la lista</a>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class="mb-3">
-                <label class="form-label">Nombre del Bocadito</label>
-                <input asp-for="nombreB" type="text" class="form-control">
-                <span asp-validation-for="nombreB" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Descripcion del Bocadito</label>
-                <input asp-for="descripcionB" type="text" class="form-control">
-                <span asp-validation-for="descripcionB" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Costo del Bocadito</label>
-                <input asp-for="costoB" type="number" class="form-control">
-                <span asp-validation-for="costoB" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Fecha de Creacion</label>
-                <input asp-for="fechaCreacionB" type="date" class="form-control">
-                <span asp-validation-for="fechaCreacionB" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Fecha de Vencimiento</label>
-                <input asp-for="fechaVencimiB" type="date" class="form-control">
-                <span asp-validation-for="fechaVencimiB" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Stock Disponible</label>
-                <input asp-for="stockB" type="number" class="form-control">
-                <span asp-validation-for="stockB" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Imagen</label>
-                <input asp-for="imagenB" type="text" class="form-control">
-                <span asp-validation-for="imagenB" class="text-danger"></span>
-            </div>
-            <button type="submit" class="btn btn-primary"><i class="bi bi-cloud-download-fill"></i>Guardar</button>
-            <a asp-action="Listar" asp-controller="Bocaditos" class="btn btn-warning"><i class="bi bi-arrow-left"></i>Volver a la lista</a>
-        </form>
+        </div>
     </div>
 </div>
 

@@ -4,61 +4,69 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="card">
-    <div class="card-header">
-        Agregar Pan
-    </div>
-    <div class="card-body">
-        <form asp-action="Guardar" asp-controller="Panes" method="post">
-            <div class="mb-3">
-                <label class="form-label">Marca</label>
-                <select asp-for="marcaP" class="form-control">
-                    <option value="Artesanal">Artesanal</option>
-                    <option value="Bimbo">Bimbo</option>
-                    <option value="Dempster">Dempster</option>
-                    <option value="Aryzta">Aryzta</option>
-                    <option value="Hovis">Hovis</option>
-                </select>
-                <span asp-validation-for="marcaP" class="text-danger"></span>
+<div class="imgEditarPan">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="card" style="border: 1px solid white">
+                    <div class="card-header bg-dark text-white">
+                        <h2 class="text-center"><strong>Añadir un Nuevo Pan</strong></h2>
+                    </div>
+                    <div class="card-body bg-dark text-white">
+                        <form asp-action="Guardar" asp-controller="Panes" method="post">
+                            <div class="mb-3">
+                                <label class="form-label">Marca</label>
+                                <select asp-for="marcaP" class="form-control">
+                                    <option value="Artesanal">Artesanal</option>
+                                    <option value="Bimbo">Bimbo</option>
+                                    <option value="Dempster">Dempster</option>
+                                    <option value="Aryzta">Aryzta</option>
+                                    <option value="Hovis">Hovis</option>
+                                </select>
+                                <span asp-validation-for="marcaP" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Nombre del Pan</label>
+                                <input asp-for="nombreP" type="text" class="form-control">
+                                <span asp-validation-for="nombreP" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Descripcion del Pan</label>
+                                <input asp-for="descripcionP" type="text" class="form-control">
+                                <span asp-validation-for="descripcionP" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Costo del Pan</label>
+                                <input asp-for="costoP" type="number" class="form-control">
+                                <span asp-validation-for="costoP" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Fecha de Creacion</label>
+                                <input asp-for="fechaCreacionP" type="date" class="form-control">
+                                <span asp-validation-for="fechaCreacionP" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Fecha de Vencimineto</label>
+                                <input asp-for="fechaVencimiP" type="date" class="form-control">
+                                <span asp-validation-for="fechaVencimiP" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Stock Disponible</label>
+                                <input asp-for="stockP" type="number" class="form-control">
+                                <span asp-validation-for="stockP" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Imagen</label>
+                                <input asp-for="imagenP" type="text" class="form-control">
+                                <span asp-validation-for="imagenP" class="text-danger"></span>
+                            </div>
+                            <button type="submit" class="btn btn-primary"><i class="bi bi-cloud-download-fill"></i> Guardar</button>
+                            <a asp-action="Listar" asp-controller="Panes" class="btn btn-warning"><i class="bi bi-arrow-left"></i> Volver a la lista</a>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class="mb-3">
-                <label class="form-label">Nombre del Pan</label>
-                <input asp-for="nombreP" type="text" class="form-control">
-                <span asp-validation-for="nombreP" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Descripcion del Pan</label>
-                <input asp-for="descripcionP" type="text" class="form-control">
-                <span asp-validation-for="descripcionP" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Costo del Pan</label>
-                <input asp-for="costoP" type="number" class="form-control">
-                <span asp-validation-for="costoP" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Fecha de Creacion</label>
-                <input asp-for="fechaCreacionP" type="date" class="form-control">
-                <span asp-validation-for="fechaCreacionP" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Fecha de Vencimineto</label>
-                <input asp-for="fechaVencimiP" type="date" class="form-control">
-                <span asp-validation-for="fechaVencimiP" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Stock Disponible</label>
-                <input asp-for="stockP" type="number" class="form-control">
-                <span asp-validation-for="stockP" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Imagen</label>
-                <input asp-for="imagenP" type="text" class="form-control">
-                <span asp-validation-for="imagenP" class="text-danger"></span>
-            </div>
-            <button type="submit" class="btn btn-primary"><i class="bi bi-cloud-download-fill"></i> Guardar</button>
-            <a asp-action="Listar" asp-controller="Panes" class="btn btn-warning"><i class="bi bi-arrow-left"></i> Volver a la lista</a>
-        </form>
+        </div>
     </div>
 </div>
 

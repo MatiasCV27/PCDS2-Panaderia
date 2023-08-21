@@ -4,37 +4,36 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="card">
-    <div class="card-header">
-        Registrar
-    </div>
-    <div class="card-body">
-        <form asp-action="GuardarPropioUser" asp-controller="Usuarios" method="post">
-            <div class="mb-3">
-                <label class="form-label">Nombre de Usuario</label>
-                <input asp-for="usuario" type="text" class="form-control">
-                <span asp-validation-for="usuario" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Correo Electronico</label>
-                <input asp-for="correo" type="text" class="form-control">
-                <span asp-validation-for="correo" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Contraseña</label>
-                <input asp-for="clave" type="text" class="form-control">
-                <span asp-validation-for="clave" class="text-danger"></span>
-            </div>
-            <div class="mb-3" style="display: none;>
-                <label class="form-label">Roles</label>
-                <select asp-for="rol" class="form-control">
-                    <option value="USER">Usuario</option>
-                    <option value="ADMIN">Administrador</option>
-                </select>
-                <span asp-validation-for="rol" class="text-danger"></span>
-            </div>
-            <button type="submit" class="btn btn-primary"><i class="bi bi-cloud-download-fill"></i> Guardar</button>
-            <a asp-action="Login" asp-controller="Acceso" class="btn btn-warning"><i class="bi bi-arrow-left"></i> Volver</a>
-        </form>
+<div class="regisCont">
+    <div class="col-lg-5 col-md-8 col-sm-10 mx-auto">
+        <div class="login-box">
+            <h4 class="text-white text-center" style="padding: .75em 0">Registro</h4>
+            <form asp-action="GuardarPropioUser" asp-controller="Usuarios" method="post">
+                <div class="user-box">
+                    <input type="text" asp-for="usuario" required="" />
+                    <label>Nombre de Usuario:</label>
+                </div>
+                <div class="user-box">
+                    <input type="text" asp-for="correo" required="" />
+                    <label>Correo Electrónico:</label>
+                </div>
+                <div class="user-box">
+                    <input type="text" asp-for="clave" class="m-0" required="" />
+                    <label>Contraseña:</label>
+                </div>
+                <div class="mb-3" style="display: none;>
+                    <label class="form-label">Roles</label>
+                    <select asp-for="rol" class="form-control">
+                        <option value="USER">Usuario</option>
+                        <option value="ADMIN">Administrador</option>
+                    </select>
+                    <span asp-validation-for="rol" class="text-danger"></span>
+                </div>
+                <center>
+                    <button type="submit" class="text-dark border-0"><strong><i class="bi bi-cloud-download-fill"></i> Registrarse</strong></button>
+                    <a asp-action="Login" asp-controller="Acceso" class="btnRedirect"><strong> Volver <i class="bi bi-arrow-right"></i></strong></a>
+                </center>
+            </form>
+        </div>
     </div>
 </div>

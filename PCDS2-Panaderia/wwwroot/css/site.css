@@ -1,0 +1,27 @@
+.imgEditarPan {
+    background-image: url("https://images6.alphacoders.com/339/339410.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 100%;
+    padding: 3em 0;
+}
+.imgEditarBoca {
+    background-image: url("https://img.freepik.com/foto-gratis/arreglo-conceptual-delicioso-alfajores_23-2148777343.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 100%;
+    padding: 3em 0;
+}
+.imgEditarTorta {
+    background-image: url("https://w0.peakpx.com/wallpaper/73/729/HD-wallpaper-chocolate-cake-sweets-pastries-chocolate-cheesecake-cakes.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 100%;
+    padding: 3em 0;
+}

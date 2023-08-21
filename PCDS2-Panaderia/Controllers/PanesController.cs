@@ -84,27 +84,5 @@ namespace PCDS2_Panaderia.Controllers
         }
 
         // Actualizar Stock
-        private readonly PanesData _panesData;
-
-        [HttpPost]
-        public IActionResult ActualizarStock(int productoId, int cantidad)
-        {
-            var pan = _panesData.ObtenerPanes(productoId);
-
-            if (pan != null)
-            {
-                if (pan.stockP >= cantidad)
-                {
-                    pan.stockP -= cantidad;
-                    _panesData.EditarPanes(pan);
-                    return Ok();
-                }
-                else
-                {
-                    return BadRequest("No hay suficiente stock disponible.");
-                }
-            }
-            return NotFound("Pan no encontrado.");
-        }
     }
 }

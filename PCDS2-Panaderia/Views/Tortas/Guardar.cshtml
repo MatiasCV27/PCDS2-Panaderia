@@ -3,61 +3,70 @@
     ViewData["Title"] = "Guardar";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="card">
-    <div class="card-header">
-        Agregar Pastel
-    </div>
-    <div class="card-body">
-        <form asp-action="Guardar" asp-controller="Tortas" method="post">
-            <div class="mb-3">
-                <label class="form-label">Marca</label>
-                <select asp-for="marcaB" class="form-control">
-                    <option value="Artesanal">Artesanal</option>
-                    <option value="Bimbo">Bimbo</option>
-                    <option value="Dempster">Dempster</option>
-                    <option value="Aryzta">Aryzta</option>
-                    <option value="Hovis">Hovis</option>
-                </select>
-                <span asp-validation-for="marcaB" class="text-danger"></span>
+
+<div class="imgEditarTorta">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="card" style="border: 1px solid white">
+                    <div class="card-header bg-dark text-white">
+                        <h2 class="text-center"><strong>Añadir un Nuevo Pastel</strong></h2>
+                    </div>
+                    <div class="card-body bg-dark text-white">
+                        <form asp-action="Guardar" asp-controller="Tortas" method="post">
+                            <div class="mb-3">
+                                <label class="form-label">Marca</label>
+                                <select asp-for="marcaB" class="form-control">
+                                    <option value="Artesanal">Artesanal</option>
+                                    <option value="Bimbo">Bimbo</option>
+                                    <option value="Dempster">Dempster</option>
+                                    <option value="Aryzta">Aryzta</option>
+                                    <option value="Hovis">Hovis</option>
+                                </select>
+                                <span asp-validation-for="marcaB" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Nombre del Pastel</label>
+                                <input asp-for="nombreT" type="text" class="form-control">
+                                <span asp-validation-for="nombreT" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Descripcion del Pastel</label>
+                                <input asp-for="descripcionT" type="text" class="form-control">
+                                <span asp-validation-for="descripcionT" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Costo del Pastel</label>
+                                <input asp-for="costoT" type="number" class="form-control">
+                                <span asp-validation-for="costoT" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Fecha de Creacion</label>
+                                <input asp-for="fechaCreacionT" type="date" class="form-control">
+                                <span asp-validation-for="fechaCreacionT" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Fecha de Vencimineto</label>
+                                <input asp-for="fechaVencimi" type="date" class="form-control">
+                                <span asp-validation-for="fechaVencimi" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Stock Disponible</label>
+                                <input asp-for="stockT" type="number" class="form-control">
+                                <span asp-validation-for="stockT" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Imagen</label>
+                                <input asp-for="imagenT" type="text" class="form-control">
+                                <span asp-validation-for="imagenT" class="text-danger"></span>
+                            </div>
+                            <button type="submit" class="btn btn-primary"><i class="bi bi-cloud-download-fill"></i> Guardar</button>
+                            <a asp-action="Listar" asp-controller="Tortas" class="btn btn-warning"><i class="bi bi-arrow-left"></i> Volver a la lista</a>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class="mb-3">
-                <label class="form-label">Nombre del Pastel</label>
-                <input asp-for="nombreT" type="text" class="form-control">
-                <span asp-validation-for="nombreT" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Descripcion del Pastel</label>
-                <input asp-for="descripcionT" type="text" class="form-control">
-                <span asp-validation-for="descripcionT" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Costo del Pastel</label>
-                <input asp-for="costoT" type="number" class="form-control">
-                <span asp-validation-for="costoT" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Fecha de Creacion</label>
-                <input asp-for="fechaCreacionT" type="date" class="form-control">
-                <span asp-validation-for="fechaCreacionT" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Fecha de Vencimineto</label>
-                <input asp-for="fechaVencimi" type="date" class="form-control">
-                <span asp-validation-for="fechaVencimi" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Stock Disponible</label>
-                <input asp-for="stockT" type="number" class="form-control">
-                <span asp-validation-for="stockT" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Imagen</label>
-                <input asp-for="imagenT" type="text" class="form-control">
-                <span asp-validation-for="imagenT" class="text-danger"></span>
-            </div>
-            <button type="submit" class="btn btn-primary"><i class="bi bi-cloud-download-fill"></i> Guardar</button>
-            <a asp-action="Listar" asp-controller="Tortas" class="btn btn-warning"><i class="bi bi-arrow-left"></i> Volver a la lista</a>
-        </form>
+        </div>
     </div>
 </div>
 
