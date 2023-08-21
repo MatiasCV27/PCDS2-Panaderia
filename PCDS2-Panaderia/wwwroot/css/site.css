@@ -25,3 +25,12 @@
     width: 100%;
     padding: 3em 0;
 }
+.imgEditarUser {
+    background-image: url("https://t4.ftcdn.net/jpg/03/52/87/09/360_F_352870919_LqUsX2r5pANSCt6UhdRkk2FgbUehKC8V.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 100%;
+    padding: 3em 0;
+}

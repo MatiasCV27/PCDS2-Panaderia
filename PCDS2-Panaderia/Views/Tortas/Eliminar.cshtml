@@ -4,11 +4,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="card">
+<div class="card bg-dark text-white" style="padding-bottom: 300px">
     <div class="card-header">
         Eliminar Pastel
     </div>
-    <div class="card-body">
+    <div class="card bg-dark text-white">
         <form asp-action="Eliminar" asp-controller="Tortas" method="post">
             <input asp-for="idTortas" type="hidden" class="form-control">
             <div class="alert alert-danger" role="alert">
@@ -19,4 +19,3 @@
         </form>
     </div>
 </div>
-
