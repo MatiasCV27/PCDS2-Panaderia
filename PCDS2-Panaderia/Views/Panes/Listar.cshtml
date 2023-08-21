@@ -4,39 +4,41 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="card">
+<div class="card bg-dark text-white">
     <div class="card-header">
         Listado de Panes
     </div>
-    <div class="card-body">
+    <div class="card-body bg-dark text-white">
         <a asp-action="Guardar" asp-controller="Panes" class="btn btn-success"><i class="bi bi-person-plus-fill"></i>Agregar Nuevo Pan</a>
         <hr />
-        <table class="table table-bordered">
+        <table class="table table-dark table-hover table-bordered-white" style="border: 1px solid white;">
             <thead>
                 <tr>
-                    <th class="text-center" style ="vertical-align: middle;">Marca</th>
-                    <th class="text-center" style ="vertical-align: middle;">Nombre</th>
-                    <th class="text-center" style ="vertical-align: middle;">Descripción</th>
-                    <th class="text-center" style ="vertical-align: middle;">Costo</th>
-                    <th class="text-center" style ="vertical-align: middle;">Creación</th>
-                    <th class="text-center" style ="vertical-align: middle;">Vencimiento</th>
-                    <th class="text-center" style ="vertical-align: middle;">Stock</th>
-                    <th class="text-center" style ="vertical-align: middle;">Imagen</th>
+                    <th class="text-center" style="vertical-align: middle; border: 1px solid white;">Marca</th>
+                    <th class="text-center" style="vertical-align: middle; border: 1px solid white;">Nombre</th>
+                    <th class="text-center" style="vertical-align: middle; border: 1px solid white;">Descripción</th>
+                    <th class="text-center" style="vertical-align: middle; border: 1px solid white;">Costo</th>
+                    <th class="text-center" style="vertical-align: middle; border: 1px solid white;">Creación</th>
+                    <th class="text-center" style="vertical-align: middle; border: 1px solid white;">Vencimiento</th>
+                    <th class="text-center" style="vertical-align: middle; border: 1px solid white;">Stock</th>
+                    <th class="text-center" style="vertical-align: middle; border: 1px solid white;">Imagen</th>
+                    <th class="text-center" style="vertical-align: middle; border: 1px solid white;">Editar</th>
+                    <th class="text-center" style="vertical-align: middle; border: 1px solid white;">Eliminar</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model)
                 {
                     <tr>
-                        <td style="vertical-align: middle;">@item.marcaP</td>
-                        <td style="vertical-align: middle;">@item.nombreP</td>
-                        <td style="vertical-align: middle;">@item.descripcionP</td>
-                        <td style="vertical-align: middle;">@item.costoP</td>
-                        <td style="vertical-align: middle;">@item.fechaCreacionP.ToString("yyyy-MM-dd")</td>
-                        <td style="vertical-align: middle;">@item.fechaVencimiP.ToString("yyyy-MM-dd")</td>
-                        <td style="vertical-align: middle;">@item.stockP</td>
-                        <td style="vertical-align: middle;"><img src="@item.imagenP" alt="Imagen de Pan" style="width: 50px; border: 2px solid black"/></td>
-                        <td style="vertical-align: middle;" class="text-center">
+                        <td style="vertical-align: middle; border-right: 1px solid white;">@item.marcaP</td>
+                        <td style="vertical-align: middle; border-right: 1px solid white;">@item.nombreP</td>
+                        <td style="vertical-align: middle; border-right: 1px solid white;">@item.descripcionP</td>
+                        <td class="text-center" style="vertical-align: middle; border-right: 1px solid white;">@item.costoP</td>
+                        <td class="text-center" style="vertical-align: middle; border-right: 1px solid white;">@item.fechaCreacionP.ToString("yyyy-MM-dd")</td>
+                        <td class="text-center" style="vertical-align: middle; border-right: 1px solid white;">@item.fechaVencimiP.ToString("yyyy-MM-dd")</td>
+                        <td class="text-center" style="vertical-align: middle; border-right: 1px solid white;">@item.stockP</td>
+                        <td class="text-center" style="vertical-align: middle; border-right: 1px solid white;"><img src="@item.imagenP" alt="Imagen de Pan" style="width: 50px; border: 2px solid black" /></td>
+                        <td style="vertical-align: middle; border-right: 1px solid white;" class="text-center">
                             <a asp-action="Editar" asp-controller="Panes" class="btn btn-primary" asp-route-idPanes="@item.idPanes"><i class="bi bi-pencil-square"></i></a>
                         </td>
                         <td style="vertical-align: middle;" class="text-center">
@@ -48,4 +50,5 @@
         </table>
     </div>
 </div>
+
 
